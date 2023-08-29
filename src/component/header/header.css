@@ -1,0 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Tilt+Prism&display=swap');
+
+.header{
+    height:6vh;
+    background-color: blueviolet;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.title{
+    font-family: 'Tilt Prism', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-left: 45px;
+}
+
+
+
+ @media (min-width:768px) { 
+
+    .title{
+        font-size: 50px;
+        font-weight: bolder;
+        letter-spacing: 5px;
+    }
+
+    .header{
+        height:15vh;
+    }
+ }

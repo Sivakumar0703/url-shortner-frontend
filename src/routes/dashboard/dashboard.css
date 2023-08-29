@@ -1,0 +1,61 @@
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.dashboard-texts{
+    margin: 15px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.linechart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 15px;
+}
+
+.per-day-count , .monthly-count{
+margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.per-day-count{
+    background-color: aquamarine;
+}
+
+.today-count , .this-month-count{
+    margin: auto;
+    font-size:50px;
+    font-weight: bold;
+}
+
+.monthly-count{
+    background-color:burlywood;
+}
+
+.dashboard-text{
+    font-size:x-large; 
+    margin-bottom: 0rem;
+}
+
+@media (min-width: 768px) { 
+
+    .dashboard{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 15px;
+    }
+
+ }

@@ -1,0 +1,28 @@
+
+
+.verify-email-container{
+    height:100vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.verify-email-container > img{
+    height:150px;
+    width:150px;
+    object-fit: cover;
+}
+
+.verify-email-container > h1{
+    text-align: center;
+}
+
+.error-page{
+    height:100vh;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

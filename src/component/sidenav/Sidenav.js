@@ -1,11 +1,24 @@
 import React from 'react'
-import {FaAngleRight , FaAngleLeft , FaSignOutAlt ,FaThLarge , FaChartBar , FaShoppingCart , FaBars} from "react-icons/fa"
-import { NavLink } from 'react-router-dom'
+import { useState } from 'react';
+import {FaAngleRight , FaAngleLeft , FaSignOutAlt , FaBars, FaArrowCircleRight, FaUserPlus ,  FaLink, FaTable, FaChartLine} from "react-icons/fa"
+import { NavLink, useNavigate } from 'react-router-dom'
 import "../sidenav/sidenav.css"
+import "../../index.css"
 
-const Sidenav = ({showNav , setShowNav}) => {
+const Sidenav = () => {
+    const [showNav , setShowNav] = useState(false)
+    const navigate = useNavigate()
+    const user = JSON.parse(localStorage.getItem("user"))?.email;
+  
+ // logout function
+ const logout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('cartArray');
+    navigate('/')
+  }
+
   return (
-    <>
+    <div className={!showNav ? "page" : "page page-with-navbar"}>
      
      <div className='mobile-nav'>
         <button className='mobile-nav-btn' onClick={()=>setShowNav(!showNav)}>
@@ -23,42 +36,63 @@ const Sidenav = ({showNav , setShowNav}) => {
         </button>
 
         <div>
-            <NavLink to="/" className="logo">
-                {/* <img src={require("")} alt="logo" /> */}
+            <NavLink to="/" className="logo mb-2">
+                <img src={require("./nav-image.webp")} alt="logo" />
 
             </NavLink>
+
+            {
+                !user ? (
+                    <NavLink to="/login" className="nav-link">
+              <FaArrowCircleRight size={30} />
+              <span> Login </span>
+           </NavLink>
+                ) : ''
+            }
+
+           {
+            !user ? (
+                <NavLink to="/sign-up" className="nav-link">
+                <FaUserPlus size={30} />
+                <span> Sign-up </span>
+             </NavLink>
+            ) : ''
+           }
        
             <div className='nav-top'>
-            <NavLink className="nav-link">
-                <FaThLarge size={30} />
+            <NavLink to="/" className="nav-link">
+                <FaChartLine size={30} />
                 <span> Dashboard </span>
             </NavLink>
 
-            <NavLink className="nav-link">
-                <FaChartBar size={30} />
-                <span> Chart </span>
+            <NavLink to="/url_shortner" className="nav-link">
+                <FaLink size={30} />
+                <span> URL </span>
             </NavLink>
 
-            <NavLink className="nav-link">
-                 <FaShoppingCart size={30} />
-                 <span> Cart </span>
+            <NavLink to="/url_list" className="nav-link">
+                 <FaTable size={30} />
+                 <span> Url List </span>
             </NavLink>
 
         </div>
 
         </div>
-
-        
+  
 
         <div>
-           <NavLink to="/" className="nav-link">
+           {
+            user ? (
+                <NavLink  className="nav-link" onClick={logout}>
               <FaSignOutAlt size={30} />
               <span> sign out </span>
            </NavLink>
+            ) : ''
+           }
         </div>
 
     </nav>
-    </>
+    </div>
   )
 }
 

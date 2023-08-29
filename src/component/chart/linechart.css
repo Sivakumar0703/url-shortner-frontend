@@ -1,0 +1,33 @@
+
+.line-chart{
+    height:20vh;
+    width:90%;
+}
+
+@media only screen and (min-width:576px) {
+
+    .line-chart{
+        height:20vh;
+        width:60%;
+    }
+    
+}
+
+@media only screen and (min-width:768px) {
+
+    .line-chart{
+        height:30vh;
+        width:80%;
+    }
+    
+}
+
+
+@media only screen and (min-width:1200px) {
+
+    .line-chart{
+        height:50vh;
+        width:80%;
+    }
+    
+}

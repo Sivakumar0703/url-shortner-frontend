@@ -1,0 +1,44 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Montserrat:wght@100&family=Qwitcher+Grypen&family=Tilt+Prism&display=swap');
+
+
+.login-page{
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.login-form{
+    margin: 5px;
+    background-image: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%);
+}
+
+.login-title{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.forgot-password , .no-account {
+    text-decoration: none;
+}
+
+@media (min-width: 768px) { 
+    .forgot-password-link{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+ }
+
+ .alert-msg{
+    height:4vh;
+    color: red;
+    font-weight: 700;
+    text-align: center;
+ }
+
+ .alert-msg > p {
+    margin-bottom: 0rem;
+ }
