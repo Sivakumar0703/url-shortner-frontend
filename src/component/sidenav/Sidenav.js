@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import {FaAngleRight , FaAngleLeft , FaSignOutAlt , FaBars, FaArrowCircleRight, FaUserPlus ,  FaLink, FaTable, FaChartLine} from "react-icons/fa"
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -8,6 +8,7 @@ import "../../index.css"
 const Sidenav = () => {
     const [showNav , setShowNav] = useState(false)
     const navigate = useNavigate()
+    const menuRef = useRef();
     const user = JSON.parse(localStorage.getItem("user"))?.email;
   
  // logout function
@@ -17,17 +18,35 @@ const Sidenav = () => {
     navigate('/')
   }
 
+ 
+
+  // to hide the side nav when user click anywhere on the screen
+  useEffect(()=>{
+
+    const handler = (e) => {
+        if(!menuRef.current.contains(e.target)){
+            setShowNav(false)
+        }
+    }
+
+    document.addEventListener("mousedown" , handler)
+
+    return ()=>{
+        document.removeEventListener("mousedown" , handler)
+    }
+
+  },[])
+
   return (
     <div className={!showNav ? "page" : "page page-with-navbar"}>
      
-     <div className='mobile-nav'>
-        <button className='mobile-nav-btn' onClick={()=>setShowNav(!showNav)}>
+     <div className='mobile-nav' >
+        <button className='mobile-nav-btn' onClick={()=>setShowNav(!showNav)} >
            <FaBars size={25} />
         </button>
-
      </div>
 
-    <nav className={showNav ? "" : "sidenav"}>
+    <nav className={showNav ? "" : "sidenav"} ref={menuRef} >
 
         <button className="nav-btn" type='button' onClick={()=>setShowNav(!showNav)}>
             {
@@ -38,7 +57,6 @@ const Sidenav = () => {
         <div>
             <NavLink to="/" className="logo mb-2">
                 <img src={require("./nav-image.webp")} alt="logo" />
-
             </NavLink>
 
             {

@@ -40,7 +40,7 @@ const UrlList = ({api}) => {
 
 
                     </tbody>
-                </Table>) : "Loading..."}
+                </Table>) : <h3 style={{display:"flex" , justifyContent:"center" , alignItems:"center"}}>Loading...</h3>}
         </Layout>
     )
 }

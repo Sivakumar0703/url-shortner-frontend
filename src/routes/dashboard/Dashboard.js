@@ -5,7 +5,7 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import LineChart from '../../component/chart/LineChart'
 
-const Dashboard = ({api}) => {
+const Dashboard = ({ api }) => {
 
   const [urlList, setUrlList] = useState('')
   const date = new Date().toISOString()
@@ -40,40 +40,12 @@ const Dashboard = ({api}) => {
 
   return (
     <Layout>
-      <div className="dashboard-texts">
-        <h3 style={{textAlign:"center"}}><u>Why URLs Become Long, Winded, and Chaotic</u></h3>
-        <p>When you create a website, you tend to start with something simple, say company.com. 
-          At the start, you may add some basic pages to it, like About Us, Products & Services, 
-          and a Contact Page. These pages can have easy to read and remember URLs, 
-          like company.com/about-us or company.com/services.</p>
-
-          <p>
-          However, you will eventually want to add more tools and content. 
-          For example, you might want to add a tracking algorithm to your site, 
-          which detects where your visitors come from. 
-          Or you might want to add a sign-up sheet that's only active for a time.
-          </p> <br/>
-
-          <p>
-          This can turn a simple company.com/about-us URL into a monstrosity like 
-          company.com/about-us/ref=goog.le?pd_rd_i-sdvcsdcs23xcas&th3.When users see links like these, 
-          they might balk at clicking on them because of all the extraneous characters attached at the end.
-          </p>
-      </div>
-      <div className='linechart'>
+      {
+        urlList ? (
+          <>
+        <div className='linechart'>
+          <p>Number of URL generated per month is displayed as a graph here.</p>
         <LineChart api={api} />
-      </div>
-
-      <div className="dashboard-texts">
-        <h3>ADVANTAGE OF SHORT URL</h3>
-        
-          <ul>
-            <li>Easy to share</li>
-            <li>Easy to find number of clicks</li>
-            <li>Easy to keep in mind</li>
-            <li>Clean and neat appearance</li>
-          </ul>
-       
       </div>
 
       <div className='dashboard'>
@@ -88,6 +60,11 @@ const Dashboard = ({api}) => {
           <p className='this-month-count'>  {urlList && urlList.filter(thisMonth).length} </p>
         </div>
       </div>
+      </>
+        ) : (
+          <h3 className='dashboard-loading'>loading...</h3>
+        )
+      }
 
     </Layout>
   )

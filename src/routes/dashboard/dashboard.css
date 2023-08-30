@@ -59,3 +59,9 @@ margin: 15px;
     }
 
  }
+
+ .dashboard-loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
