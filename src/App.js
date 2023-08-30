@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<Dashboard api={api} />} />
           <Route path="/sign-up" element={<Register api={api} />} />
           <Route path="/login" element={<Login api={api} />} />
-          <Route path="/forgot_password" element={<ForgotPassword />} />
+          <Route path="/forgot_password" element={<ForgotPassword api={api} />} />
           <Route path="/reset_password/:verification/:token" element={<ResetPassword api={api} />} />
           <Route path="/url_shortner" element={<UrlShortner api={api} />} />
           <Route path="/url_list" element={<UrlList api={api} />} />

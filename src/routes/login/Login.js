@@ -138,7 +138,7 @@ const Login = ({api}) => {
                 <div className='forgot-password-link'>
                     <a className='forgot-password' href='/forgot_password'> Forgot Password?  </a> <br />
 
-                    <a className='no-account' href='/signup'> Don't have an account? click here </a>
+                    <a className='no-account' href='/sign-up'> Don't have an account? click here </a>
 
                 </div>
 

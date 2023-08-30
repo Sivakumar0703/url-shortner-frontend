@@ -10,9 +10,9 @@ const ForgotPassword = ({api}) => {
 
     function resetPassword(e) {
         e.preventDefault();
-        console.log(email)
         axios.post(`${api}/user/forgot_password`, { email: email })
-            .then(res => toast(res.data?.message))
+        
+            .then(res => toast.success(res.data?.message) )
             .catch((err) => toast(err.response?.data?.message))
     }
 

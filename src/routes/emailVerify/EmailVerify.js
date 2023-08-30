@@ -5,21 +5,17 @@ import axios from 'axios'
 import Errorpage from '../errorPage/ErrorPage'
 
 const EmailVerify = ({api}) => {
-    const [url , setUrl] = useState()
+    const [url , setUrl] = useState(true)
     const params = useParams()
 
     useEffect(()=>{
         const verifyEmailUrl = async() =>{
             try {
-              console.log(params.id , params.token)
-              // const url = `http://localhost:8000/user/${params.id}/verify/${params.token}`  
               const url = `${api}/user/${params.id}/verify/${params.token}`  
               const data = await axios.get(url);
-              console.log(data)
               setUrl(true)
             } catch (error) {
-                console.log(error)
-                setUrl(false)
+                 setUrl(false)
             }
         }
 
